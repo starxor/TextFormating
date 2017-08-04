@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.3\nBuild version 8E3004b",
+  "commitish" : "1.3.0",
+  "iOS" : [
+    {
+      "name" : "PhoneNumberKit",
+      "md5" : "a81b1193abd0ea6de91c01b3558b3e5a"
+    }
+  ]
+}
