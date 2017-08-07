@@ -54,6 +54,7 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         case .end:
             textField.selectedTextRange = textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
         }
+        
     }
     
     func textFieldEditingChanged(_ textField: UITextField) {
@@ -83,22 +84,34 @@ class TextFieldController: NSObject, UITextFieldDelegate {
                 }
                 
             } else {
-                let substring = text.substring(with: range.toStringIndexRange(in: text))
+                let originalRange = range.toStringIndexRange(in: text)
+                let substring = text.substring(with: originalRange)
                 if range.length == 1,
+                    // check if we deleted an inserted character
                    let scalar = substring.unicodeScalars.first, textFormatter.insertedCharacters.contains(scalar) {
                     selectedRange = .end
-                    // search first char not in set and reformat
+                    // search first char not in set
                     let substring = text.substring(to: range.toStringIndexRange(in: text).lowerBound)
-                    
-                    for scalar in substring.unicodeScalars.reversed() {
-                        if !textFormatter.insertedCharacters.contains(scalar),
-                           let newRange = text.range(of: String(Character(scalar))) {
-                            // delete and format
-                        	let newResult = text.substring(to: newRange.lowerBound)
+                    var currentIndex = substring.endIndex
+                    while currentIndex != substring.startIndex {
+                        let next = substring.index(before: currentIndex)
+                        let set = CharacterSet(charactersIn: substring.substring(with: next..<currentIndex))
+                        currentIndex = next
+                        if !set.isSubset(of: textFormatter.insertedCharacters) {
+                            // found first char in set
+                            let newResult = text.replacingCharacters(in: currentIndex..<originalRange.lowerBound, with: "")
+                            // reformat
                             formated = textFormatter.format(newResult)
+                            // update selected range
+                            let distance = text.distance(from: text.startIndex, to: currentIndex)
+                            if let newPosition = textField.position(from: textField.beginningOfDocument, offset: distance) {
+                                selectedRange = .range(textField.textRange(from: newPosition, to: newPosition))
+                            }
                             break
                         }
                     }
+                    
+                    
                 } else {
                     if let loc = textField.position(from: textField.beginningOfDocument, offset: range.location) {
                         selectedRange = .range(textField.textRange(from: loc, to: loc))
