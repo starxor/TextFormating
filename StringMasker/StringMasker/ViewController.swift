@@ -66,8 +66,6 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         _ textField: UITextField, shouldChangeCharactersIn range: NSRange,
         replacementString string: String) -> Bool {
         
-        print("replacementString: \(string)")
-        print("shouldChangeCharactersIn: \(NSStringFromRange(range))")
         var formated: String
         var selectedRange: TextEditingResult.SelectionRange
         if let text = textField.text {
