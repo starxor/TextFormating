@@ -10,17 +10,17 @@ import XCTest
 @testable import StringMasker
 
 class StringMaskerTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -42,25 +42,24 @@ class StringMaskerTests: XCTestCase {
             "79113493",
             "791134933",
             "79113493390",
-            "79657535778",
-        ]
-        
+            "79657535778"
+            ]
+
         for input in testList {
             print(masker.format("+" + input))
-            
+
         }
-        
-//        for _ in 0..<100 {
-//            let randomPhone = 10_000_000_000 + Int(arc4random_uniform(99_999_999)) * 1000
-//            print(masker.mask(String(randomPhone)))
-//        }
+
+        //        for _ in 0..<100 {
+        //            let randomPhone = 10_000_000_000 + Int(arc4random_uniform(99_999_999)) * 1000
+        //            print(masker.mask(String(randomPhone)))
+        //        }
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }

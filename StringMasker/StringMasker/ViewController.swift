@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var textField: UITextField!
     var textFieldController: TextFieldController!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,29 +23,29 @@ class ViewController: UIViewController {
 class TextFieldController: NSObject, UITextFieldDelegate {
     var textField: UITextField
     var textFormatter: TextFormatter
-    
+
     init(textField: UITextField, textFormatter: TextFormatter) {
         self.textField = textField
         self.textFormatter = textFormatter
-        
+
         super.init()
-        
+
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
     }
-    
+
     struct TextEditingResult {
         enum SelectionRange {
             case range(UITextRange?)
             case end
         }
-        
+
         var text: String?
         var selectedRange: SelectionRange
     }
-    
+
     private var textEditingResult = TextEditingResult(text: nil, selectedRange: .end)
-    
+
     private func apply(editingResult result: TextEditingResult, to textField: UITextField) {
         textField.text = result.text
         switch result.selectedRange {
@@ -54,39 +54,39 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         case .end:
             textField.selectedTextRange = textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
         }
-        
+
     }
-    
+
     func textFieldEditingChanged(_ textField: UITextField) {
         apply(editingResult: textEditingResult, to: textField)
         _ = Formatter()
     }
-    
+
     func textField(
-        _ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-        replacementString string: String) -> Bool {
-        
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+        ) -> Bool {
         var formated: String
         var selectedRange: TextEditingResult.SelectionRange
         if let text = textField.text {
             let result = text.replacingCharacters(in: range.toStringIndexRange(in: text), with: string)
             formated = textFormatter.format(result)
-            
+
             if (string as NSString).length > 0 {
                 if let loc = textField.position(from: textField.beginningOfDocument, offset: range.location),
-                   let newLoc = textField.position(from: loc, offset: range.length),
-                   loc != textField.endOfDocument {
+                    let newLoc = textField.position(from: loc, offset: range.length),
+                    loc != textField.endOfDocument {
                     selectedRange = .range(textField.textRange(from: newLoc, to: newLoc))
                 } else {
                     selectedRange = .end
                 }
-                
             } else {
                 let originalRange = range.toStringIndexRange(in: text)
                 let substring = text.substring(with: originalRange)
+                // check if we deleted an inserted character
                 if range.length == 1,
-                    // check if we deleted an inserted character
-                   let scalar = substring.unicodeScalars.first, textFormatter.insertedCharacters.contains(scalar) {
+                    let scalar = substring.unicodeScalars.first, textFormatter.insertedCharacters.contains(scalar) {
                     selectedRange = .end
                     // search first char not in set
                     let substring = text.substring(to: range.toStringIndexRange(in: text).lowerBound)
@@ -108,8 +108,6 @@ class TextFieldController: NSObject, UITextFieldDelegate {
                             break
                         }
                     }
-                    
-                    
                 } else {
                     if let loc = textField.position(from: textField.beginningOfDocument, offset: range.location) {
                         selectedRange = .range(textField.textRange(from: loc, to: loc))
@@ -117,18 +115,17 @@ class TextFieldController: NSObject, UITextFieldDelegate {
                         let start = textField.beginningOfDocument
                         selectedRange = .range(textField.textRange(from: start, to: start))
                     }
-                    
                 }
             }
-            
+
         } else {
             formated = textFormatter.format(string)
             selectedRange = .end
         }
-        
+
         textEditingResult.text = formated
         textEditingResult.selectedRange = selectedRange
-        
+
         return true
     }
 }
@@ -137,6 +134,6 @@ extension NSRange {
     func toStringIndexRange(in string: String) -> Range<String.Index> {
         let start = string.index(string.startIndex, offsetBy: self.location)
         let end = string.index(start, offsetBy: self.length)
-		return start..<end
+        return start..<end
     }
 }

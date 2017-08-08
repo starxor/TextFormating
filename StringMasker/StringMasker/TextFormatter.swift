@@ -25,28 +25,15 @@ struct RegexTextFormatter: TextFormatter {
     var descriptor: RegexTextFormatterDescriptor = RegexTextFormatterDescriptor(
         toPlainPattern: "", formatPattern: "", replaceTemplate: "", cleanPattern: "", insertedCharacters: CharacterSet()
     )
-    
+
     func format(_ input: String) -> String {
-        let plain = input.replacingOccurrences(
-            of: descriptor.toPlainPattern, with: "", options: .regularExpression,
-            range: input.startIndex..<input.endIndex
-        )
-        
-        let applyMask = plain.replacingOccurrences(
-            of: descriptor.formatPattern,
-            with: descriptor.replaceTemplate,
-            options: .regularExpression,
-            range: plain.startIndex..<plain.endIndex
-        )
-        
-        let res = applyMask.replacingOccurrences(
-            of: descriptor.cleanPattern, with: "",
-            options: .regularExpression, range: applyMask.startIndex..<applyMask.endIndex
-        )
-        
+        let plain = input.replacingOccurrences(of: descriptor.toPlainPattern, with: "", options: .regularExpression)
+        let applyMask = plain.replacingOccurrences(of: descriptor.formatPattern, with: descriptor.replaceTemplate,
+                                                   options: .regularExpression)
+        let res = applyMask.replacingOccurrences(of: descriptor.cleanPattern, with: "", options: .regularExpression)
         return res
     }
-    
+
     var insertedCharacters: CharacterSet {
         return descriptor.insertedCharacters
     }
@@ -87,19 +74,18 @@ struct RegexStupidPhoneStringFormatter: TextFormatter {
         // CT |     |     |     |     |     |     |
         "90", "91", "92", "93", "94", "95", "98",
         ]
-    
+
     var descriptor: RegexTextFormatterDescriptor = RegexTextFormatterDescriptor(
         toPlainPattern: "\\D",
         formatPattern: "((?<=.)[0-9]{1,3})?((?<=.{3})[0-9]{1,3})?((?<=.{2})[0-9]{1,2})?((?<=.{2})[0-9]{1,2})?((?<=.{2})[0-9]{1,4})?",
         replaceTemplate: "+$1 ($2) $3-$4-$5-$6",
         cleanPattern: "--|-$|\\(\\)| -| \\(\\)", insertedCharacters: CharacterSet(charactersIn:"+ ()-")
     )
-    
+
     private func regionFormatPattern(for string: String) -> String {
         if let regex = try? NSRegularExpression(pattern: "\\d{1,2}", options: .init(rawValue: 0)) {
-            if let match = regex.firstMatch(
-                in: string, options: .init(rawValue: 0),
-                range: NSRange(location:0, length: (string as NSString).length)) {
+            let fullRange = NSRange(location:0, length: (string as NSString).length)
+            if let match = regex.firstMatch(in: string, options: .init(rawValue: 0), range: fullRange) {
                 switch match.range.length {
                 case 1:
                     return "^\\+?([0-9]{1})"
@@ -120,7 +106,7 @@ struct RegexStupidPhoneStringFormatter: TextFormatter {
         }
         return "^\\+?([0-9]{1})"
     }
-    
+
     func format(_ input: String) -> String {
         let plain = input.replacingOccurrences(
             of: descriptor.toPlainPattern, with: "", options: .regularExpression,
@@ -133,15 +119,15 @@ struct RegexStupidPhoneStringFormatter: TextFormatter {
             options: .regularExpression,
             range: plain.startIndex..<plain.endIndex
         )
-        
+
         let res = applyMask.replacingOccurrences(
             of: descriptor.cleanPattern, with: "",
             options: .regularExpression, range: applyMask.startIndex..<applyMask.endIndex
         )
-        
+
         return res
     }
-    
+
     var insertedCharacters: CharacterSet {
         return descriptor.insertedCharacters
     }

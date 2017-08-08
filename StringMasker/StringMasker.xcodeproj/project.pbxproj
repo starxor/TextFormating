@@ -131,6 +131,7 @@
 				794C3A1D1F3377AF00C64AF3 /* Resources */,
 				794C3A4B1F33815700C64AF3 /* Embed Frameworks */,
 				794C3A541F3386FF00C64AF3 /* Carthage */,
+				792441251F39DE140077BA5B /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -222,6 +223,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		792441251F39DE140077BA5B /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		794C3A541F3386FF00C64AF3 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,6 +482,7 @@
 				794C3A3E1F3377B000C64AF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		794C3A3F1F3377B000C64AF3 /* Build configuration list for PBXNativeTarget "StringMaskerTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +491,7 @@
 				794C3A411F3377B000C64AF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
