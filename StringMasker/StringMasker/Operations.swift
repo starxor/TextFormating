@@ -8,6 +8,4 @@
 
 import Foundation
 
-func some() {
-    _ = Operation()
-}
+_ = Operation()
