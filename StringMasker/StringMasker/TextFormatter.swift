@@ -40,6 +40,7 @@ struct RegexTextFormatter: TextFormatter {
 }
 
 struct RegexStupidPhoneStringFormatter: TextFormatter {
+    // swiftlint:disable comma
     private let lessThenThreeDigitsCallingCodes = [
         "1", // North American Numbering Plan countries and territories +1 (area code) local number
         // ===========================================
@@ -74,17 +75,17 @@ struct RegexStupidPhoneStringFormatter: TextFormatter {
         // CT |     |     |     |     |     |     |
         "90", "91", "92", "93", "94", "95", "98",
         ]
-
+	// swiftlint:enable comma
     var descriptor: RegexTextFormatterDescriptor = RegexTextFormatterDescriptor(
         toPlainPattern: "\\D",
         formatPattern: "((?<=.)[0-9]{1,3})?((?<=.{3})[0-9]{1,3})?((?<=.{2})[0-9]{1,2})?((?<=.{2})[0-9]{1,2})?((?<=.{2})[0-9]{1,4})?",
         replaceTemplate: "+$1 ($2) $3-$4-$5-$6",
-        cleanPattern: "--|-$|\\(\\)| -| \\(\\)", insertedCharacters: CharacterSet(charactersIn:"+ ()-")
+        cleanPattern: "--|-$|\\(\\)| -| \\(\\)", insertedCharacters: CharacterSet(charactersIn: "+ ()-")
     )
 
     private func regionFormatPattern(for string: String) -> String {
         if let regex = try? NSRegularExpression(pattern: "\\d{1,2}", options: .init(rawValue: 0)) {
-            let fullRange = NSRange(location:0, length: (string as NSString).length)
+            let fullRange = NSRange(location: 0, length: (string as NSString).length)
             if let match = regex.firstMatch(in: string, options: .init(rawValue: 0), range: fullRange) {
                 switch match.range.length {
                 case 1:

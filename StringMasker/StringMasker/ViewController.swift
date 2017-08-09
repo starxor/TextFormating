@@ -9,12 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     @IBOutlet var textField: UITextField!
     var textFieldController: TextFieldController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
         textFieldController = TextFieldController(textField: textField, textFormatter: RegexStupidPhoneStringFormatter())
     }

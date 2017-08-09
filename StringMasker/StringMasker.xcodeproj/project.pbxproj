@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7924412B1F3B39D00077BA5B /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924412A1F3B39D00077BA5B /* Operations.swift */; };
 		794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A221F3377AF00C64AF3 /* AppDelegate.swift */; };
 		794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A241F3377AF00C64AF3 /* ViewController.swift */; };
 		794C3A281F3377AF00C64AF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A261F3377AF00C64AF3 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7924412A1F3B39D00077BA5B /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		794C3A1F1F3377AF00C64AF3 /* StringMasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringMasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A221F3377AF00C64AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794C3A241F3377AF00C64AF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
 				794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */,
 				794C3A421F3377C300C64AF3 /* TextFormatter.swift */,
+				7924412A1F3B39D00077BA5B /* Operations.swift */,
 				794C3A261F3377AF00C64AF3 /* Main.storyboard */,
 				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				794C3A431F3377C300C64AF3 /* TextFormatter.swift in Sources */,
 				794C3A481F33813A00C64AF3 /* PhoneNumberKitMasker.swift in Sources */,
+				7924412B1F3B39D00077BA5B /* Operations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
