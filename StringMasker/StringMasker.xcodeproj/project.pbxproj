@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7924412B1F3B39D00077BA5B /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924412A1F3B39D00077BA5B /* Operations.swift */; };
+		7924412B1F3B39D00077BA5B /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924412A1F3B39D00077BA5B /* ApplicationController.swift */; };
 		794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A221F3377AF00C64AF3 /* AppDelegate.swift */; };
 		794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A241F3377AF00C64AF3 /* ViewController.swift */; };
 		794C3A281F3377AF00C64AF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A261F3377AF00C64AF3 /* Main.storyboard */; };
@@ -17,6 +17,11 @@
 		794C3A431F3377C300C64AF3 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A421F3377C300C64AF3 /* TextFormatter.swift */; };
 		794C3A481F33813A00C64AF3 /* PhoneNumberKitMasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */; };
 		794C3A531F3382C100C64AF3 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */; };
+		79A79D771F41D40E00003BCE /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D761F41D40E00003BCE /* FlowCoordinator.swift */; };
+		79A79D791F41D42500003BCE /* AlfaApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D781F41D42500003BCE /* AlfaApplicationController.swift */; };
+		79A79D7B1F41ED1000003BCE /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7A1F41ED1000003BCE /* AuthFlowCoordinator.swift */; };
+		79A79D7D1F41ED3A00003BCE /* GuestFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7C1F41ED3A00003BCE /* GuestFlowCoordinator.swift */; };
+		79A79D7F1F41F44B00003BCE /* IntroductionFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7E1F41F44B00003BCE /* IntroductionFlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7924412A1F3B39D00077BA5B /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		7924412A1F3B39D00077BA5B /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		794C3A1F1F3377AF00C64AF3 /* StringMasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringMasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A221F3377AF00C64AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794C3A241F3377AF00C64AF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +62,11 @@
 		794C3A421F3377C300C64AF3 /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberKitMasker.swift; sourceTree = "<group>"; };
 		794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		79A79D761F41D40E00003BCE /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		79A79D781F41D42500003BCE /* AlfaApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaApplicationController.swift; sourceTree = "<group>"; };
+		79A79D7A1F41ED1000003BCE /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		79A79D7C1F41ED3A00003BCE /* GuestFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestFlowCoordinator.swift; sourceTree = "<group>"; };
+		79A79D7E1F41F44B00003BCE /* IntroductionFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionFlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +114,12 @@
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
 				794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */,
 				794C3A421F3377C300C64AF3 /* TextFormatter.swift */,
-				7924412A1F3B39D00077BA5B /* Operations.swift */,
+				7924412A1F3B39D00077BA5B /* ApplicationController.swift */,
+				79A79D761F41D40E00003BCE /* FlowCoordinator.swift */,
+				79A79D781F41D42500003BCE /* AlfaApplicationController.swift */,
+				79A79D7E1F41F44B00003BCE /* IntroductionFlowCoordinator.swift */,
+				79A79D7A1F41ED1000003BCE /* AuthFlowCoordinator.swift */,
+				79A79D7C1F41ED3A00003BCE /* GuestFlowCoordinator.swift */,
 				794C3A261F3377AF00C64AF3 /* Main.storyboard */,
 				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
@@ -264,9 +279,14 @@
 			files = (
 				794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */,
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
+				79A79D7B1F41ED1000003BCE /* AuthFlowCoordinator.swift in Sources */,
+				79A79D771F41D40E00003BCE /* FlowCoordinator.swift in Sources */,
+				79A79D7D1F41ED3A00003BCE /* GuestFlowCoordinator.swift in Sources */,
+				79A79D791F41D42500003BCE /* AlfaApplicationController.swift in Sources */,
+				79A79D7F1F41F44B00003BCE /* IntroductionFlowCoordinator.swift in Sources */,
 				794C3A431F3377C300C64AF3 /* TextFormatter.swift in Sources */,
 				794C3A481F33813A00C64AF3 /* PhoneNumberKitMasker.swift in Sources */,
-				7924412B1F3B39D00077BA5B /* Operations.swift in Sources */,
+				7924412B1F3B39D00077BA5B /* ApplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +433,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = StringMasker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +451,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = StringMasker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
