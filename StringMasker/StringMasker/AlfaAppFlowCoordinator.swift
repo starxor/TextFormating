@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class AlfaApplicationController: ApplicationController {
+final class AlfaAppFlowCoordinator: ApplicationController {
     required init(rootContainer: ViewControllerContainer) {
         self.rootContainer = rootContainer
         self.initialSetup()
@@ -21,7 +21,8 @@ final class AlfaApplicationController: ApplicationController {
 
     // MARK: Coordinators
     func introCoordinator() -> IntroductionFlowCoordinator {
-        return IntroductionFlowCoordinator(navigationRoot: rootContainer)
+        let intro = IntroductionFlowCoordinator(navigationRoot: rootContainer)
+        return intro
     }
 
     func authCoordinator() -> AuthorizationFlowCoordinator {
@@ -34,7 +35,7 @@ final class AlfaApplicationController: ApplicationController {
 }
 
 // MARK: Logic
-fileprivate extension AlfaApplicationController {
+fileprivate extension AlfaAppFlowCoordinator {
     var initialState: ApplicationState {
         guard let stored = getStoredInitialState() else { return .intro }
 
@@ -62,7 +63,7 @@ fileprivate extension AlfaApplicationController {
 }
 
 // MARK: Types
-fileprivate extension AlfaApplicationController {
+fileprivate extension AlfaAppFlowCoordinator {
     enum AuthenticationType: Equatable {
         case credentials
         case pin(remainingAttempts: Int)
@@ -94,11 +95,5 @@ fileprivate extension AlfaApplicationController {
     struct ApplicationStateDescriptor {
         var isFirstLaunch: Bool
         var authStatus: AuthorizationStatus
-    }
-
-    enum ApplicationState {
-        case intro
-        case guest
-        case auth
     }
 }

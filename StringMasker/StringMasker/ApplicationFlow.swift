@@ -22,11 +22,17 @@ enum ViewControllerContainer {
 
     var unboxed: UIViewController {
         switch self {
-            case .navigationController(let ctrl): return ctrl
-            case .tabbarController(let ctrl): return ctrl
-            case .splitViewController(let ctrl): return ctrl
-            case .pageViewController(let ctrl): return ctrl
-            case .custom(let ctrl): return ctrl
+        case .navigationController(let ctrl): return ctrl
+        case .tabbarController(let ctrl): return ctrl
+        case .splitViewController(let ctrl): return ctrl
+        case .pageViewController(let ctrl): return ctrl
+        case .custom(let ctrl): return ctrl
         }
     }
+}
+
+enum ApplicationState {
+    case intro
+    case guest
+    case auth
 }
