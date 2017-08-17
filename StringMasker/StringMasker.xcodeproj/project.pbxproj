@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7924412B1F3B39D00077BA5B /* ApplicationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924412A1F3B39D00077BA5B /* ApplicationFlow.swift */; };
+		7924412B1F3B39D00077BA5B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7924412A1F3B39D00077BA5B /* AppCoordinator.swift */; };
 		794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A221F3377AF00C64AF3 /* AppDelegate.swift */; };
 		794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A241F3377AF00C64AF3 /* ViewController.swift */; };
 		794C3A281F3377AF00C64AF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A261F3377AF00C64AF3 /* Main.storyboard */; };
@@ -17,11 +17,17 @@
 		794C3A431F3377C300C64AF3 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A421F3377C300C64AF3 /* TextFormatter.swift */; };
 		794C3A481F33813A00C64AF3 /* PhoneNumberKitMasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */; };
 		794C3A531F3382C100C64AF3 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */; };
-		79A79D771F41D40E00003BCE /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D761F41D40E00003BCE /* FlowCoordinator.swift */; };
+		79A79D771F41D40E00003BCE /* UIFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D761F41D40E00003BCE /* UIFlow.swift */; };
 		79A79D791F41D42500003BCE /* AlfaAppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D781F41D42500003BCE /* AlfaAppFlowCoordinator.swift */; };
 		79A79D7B1F41ED1000003BCE /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7A1F41ED1000003BCE /* AuthFlowCoordinator.swift */; };
 		79A79D7D1F41ED3A00003BCE /* GuestFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7C1F41ED3A00003BCE /* GuestFlowCoordinator.swift */; };
 		79A79D7F1F41F44B00003BCE /* IntroductionFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7E1F41F44B00003BCE /* IntroductionFlowCoordinator.swift */; };
+		79A79D811F459CF600003BCE /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A79D801F459CF600003BCE /* Intro.storyboard */; };
+		79A79D831F459CFF00003BCE /* GuestMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A79D821F459CFF00003BCE /* GuestMode.storyboard */; };
+		79A79D851F459D1A00003BCE /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A79D841F459D1A00003BCE /* SignUp.storyboard */; };
+		79A79D871F459D2600003BCE /* UserMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A79D861F459D2600003BCE /* UserMode.storyboard */; };
+		79A79D891F45E16D00003BCE /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A79D881F45E16D00003BCE /* SignIn.storyboard */; };
+		79A79D8B1F45E20F00003BCE /* SignInSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A79D8A1F45E20F00003BCE /* SignInSettings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7924412A1F3B39D00077BA5B /* ApplicationFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationFlow.swift; sourceTree = "<group>"; };
+		7924412A1F3B39D00077BA5B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		794C3A1F1F3377AF00C64AF3 /* StringMasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringMasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A221F3377AF00C64AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794C3A241F3377AF00C64AF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,11 +68,17 @@
 		794C3A421F3377C300C64AF3 /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberKitMasker.swift; sourceTree = "<group>"; };
 		794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
-		79A79D761F41D40E00003BCE /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		79A79D761F41D40E00003BCE /* UIFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFlow.swift; sourceTree = "<group>"; };
 		79A79D781F41D42500003BCE /* AlfaAppFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaAppFlowCoordinator.swift; sourceTree = "<group>"; };
 		79A79D7A1F41ED1000003BCE /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		79A79D7C1F41ED3A00003BCE /* GuestFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestFlowCoordinator.swift; sourceTree = "<group>"; };
 		79A79D7E1F41F44B00003BCE /* IntroductionFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionFlowCoordinator.swift; sourceTree = "<group>"; };
+		79A79D801F459CF600003BCE /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		79A79D821F459CFF00003BCE /* GuestMode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GuestMode.storyboard; sourceTree = "<group>"; };
+		79A79D841F459D1A00003BCE /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		79A79D861F459D2600003BCE /* UserMode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMode.storyboard; sourceTree = "<group>"; };
+		79A79D881F45E16D00003BCE /* SignIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		79A79D8A1F45E20F00003BCE /* SignInSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInSettings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,13 +126,19 @@
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
 				794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */,
 				794C3A421F3377C300C64AF3 /* TextFormatter.swift */,
-				7924412A1F3B39D00077BA5B /* ApplicationFlow.swift */,
-				79A79D761F41D40E00003BCE /* FlowCoordinator.swift */,
+				7924412A1F3B39D00077BA5B /* AppCoordinator.swift */,
+				79A79D761F41D40E00003BCE /* UIFlow.swift */,
 				79A79D781F41D42500003BCE /* AlfaAppFlowCoordinator.swift */,
 				79A79D7E1F41F44B00003BCE /* IntroductionFlowCoordinator.swift */,
 				79A79D7A1F41ED1000003BCE /* AuthFlowCoordinator.swift */,
 				79A79D7C1F41ED3A00003BCE /* GuestFlowCoordinator.swift */,
 				794C3A261F3377AF00C64AF3 /* Main.storyboard */,
+				79A79D801F459CF600003BCE /* Intro.storyboard */,
+				79A79D821F459CFF00003BCE /* GuestMode.storyboard */,
+				79A79D841F459D1A00003BCE /* SignUp.storyboard */,
+				79A79D881F45E16D00003BCE /* SignIn.storyboard */,
+				79A79D8A1F45E20F00003BCE /* SignInSettings.storyboard */,
+				79A79D861F459D2600003BCE /* UserMode.storyboard */,
 				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
 				794C3A2E1F3377AF00C64AF3 /* Info.plist */,
@@ -225,9 +243,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A79D8B1F45E20F00003BCE /* SignInSettings.storyboard in Resources */,
+				79A79D891F45E16D00003BCE /* SignIn.storyboard in Resources */,
+				79A79D851F459D1A00003BCE /* SignUp.storyboard in Resources */,
 				794C3A2D1F3377AF00C64AF3 /* LaunchScreen.storyboard in Resources */,
+				79A79D831F459CFF00003BCE /* GuestMode.storyboard in Resources */,
 				794C3A2A1F3377AF00C64AF3 /* Assets.xcassets in Resources */,
 				794C3A281F3377AF00C64AF3 /* Main.storyboard in Resources */,
+				79A79D811F459CF600003BCE /* Intro.storyboard in Resources */,
+				79A79D871F459D2600003BCE /* UserMode.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,13 +304,13 @@
 				794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */,
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				79A79D7B1F41ED1000003BCE /* AuthFlowCoordinator.swift in Sources */,
-				79A79D771F41D40E00003BCE /* FlowCoordinator.swift in Sources */,
+				79A79D771F41D40E00003BCE /* UIFlow.swift in Sources */,
 				79A79D7D1F41ED3A00003BCE /* GuestFlowCoordinator.swift in Sources */,
 				79A79D791F41D42500003BCE /* AlfaAppFlowCoordinator.swift in Sources */,
 				79A79D7F1F41F44B00003BCE /* IntroductionFlowCoordinator.swift in Sources */,
 				794C3A431F3377C300C64AF3 /* TextFormatter.swift in Sources */,
 				794C3A481F33813A00C64AF3 /* PhoneNumberKitMasker.swift in Sources */,
-				7924412B1F3B39D00077BA5B /* ApplicationFlow.swift in Sources */,
+				7924412B1F3B39D00077BA5B /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  IntroductionFlowCoordinator.swift
+//  UIFlow.swift
 //  StringMasker
 //
 //  Created by Stanislav Starzhevskiy on 14.08.17.
@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import UIKit
 
-class IntroductionFlowCoordinator {
-}
+/*
+ Flow coordinator
+ */
+protocol UIFlow {}

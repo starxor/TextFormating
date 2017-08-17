@@ -8,11 +8,4 @@
 
 import Foundation
 
-class GuestFlowCoordinator: FlowCoordinator {
-    private var navigationRoot: ViewControllerContainer
-    required init(navigationRoot: ViewControllerContainer) {
-        self.navigationRoot = navigationRoot
-    }
-
-    func start() {}
-}
+class GuestFlowCoordinator {}

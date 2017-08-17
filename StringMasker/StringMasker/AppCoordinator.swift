@@ -1,5 +1,3 @@
-//
-//  Operations.swift
 //  StringMasker
 //
 //  Created by Stanislav Starzhevskiy on 09.08.17.
@@ -35,4 +33,5 @@ enum ApplicationState {
     case intro
     case guest
     case auth
+    case user
 }

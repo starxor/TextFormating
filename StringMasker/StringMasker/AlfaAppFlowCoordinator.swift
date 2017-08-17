@@ -8,58 +8,17 @@
 
 import Foundation
 
-final class AlfaAppFlowCoordinator: ApplicationController {
+final class AlfaAppFlowCoordinator {
     required init(rootContainer: ViewControllerContainer) {
         self.rootContainer = rootContainer
-        self.initialSetup()
     }
 
     // MARK: Private
-    fileprivate var flowCoordinators: [FlowCoordinator] = []
-
     fileprivate var rootContainer: ViewControllerContainer
-
-    // MARK: Coordinators
-    func introCoordinator() -> IntroductionFlowCoordinator {
-        let intro = IntroductionFlowCoordinator(navigationRoot: rootContainer)
-        return intro
-    }
-
-    func authCoordinator() -> AuthorizationFlowCoordinator {
-        return AuthorizationFlowCoordinator(navigationRoot: rootContainer)
-    }
-
-    func guestCoordinator() -> GuestFlowCoordinator {
-        return GuestFlowCoordinator(navigationRoot: rootContainer)
-    }
 }
 
 // MARK: Logic
 fileprivate extension AlfaAppFlowCoordinator {
-    var initialState: ApplicationState {
-        guard let stored = getStoredInitialState() else { return .intro }
-
-        return stored
-    }
-
-    func initialSetup() {
-        let state = initialState
-        let initialCoord = flowCoordinator(for: state)
-        initialCoord.start()
-    }
-
-    func flowCoordinator(for initialState: ApplicationState) -> FlowCoordinator {
-        switch initialState {
-            case .auth: return authCoordinator()
-            case .guest: return guestCoordinator()
-            case .intro: return introCoordinator()
-        }
-    }
-
-    func getStoredInitialState() -> ApplicationState? {
-        // TODO: Request this from service
-        return .intro
-    }
 }
 
 // MARK: Types
