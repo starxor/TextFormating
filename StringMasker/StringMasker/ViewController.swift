@@ -12,11 +12,18 @@ class ViewController: UIViewController {
     @IBOutlet var textField: UITextField!
     var textFieldController: TextFieldController!
 
+    var onReady: () -> Void = {}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
         textFieldController = TextFieldController(textField: textField, textFormatter: RegexStupidPhoneStringFormatter())
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        onReady()
     }
 }
 

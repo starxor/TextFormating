@@ -7,8 +7,57 @@
 import Foundation
 import UIKit
 
-protocol ApplicationController {
-    init(rootContainer: ViewControllerContainer)
+class AppCoordinator {
+    private var rootContainer: ViewControllerContainer
+    init(rootContainer: ViewControllerContainer) {
+        self.rootContainer = rootContainer
+    }
+
+    var currentComponents: [AnyObject] = []
+
+    fileprivate var _isRuning = false
+
+    var isRuning: Bool {
+        return _isRuning
+    }
+
+    func start() {
+        _isRuning = true
+        let intro = introFlowComponent()
+        currentComponents.append(intro)
+        intro.start(from: rootContainer)
+    }
+
+    func introFlowComponent() -> IntroComponent {
+        // TODO: maybe some view controller swapper to handle the transitions?
+        return IntroComponent(model: IntroModel()) { [unowned self] cmp in
+            cmp.remove {
+                let compare: (AnyObject) -> Bool = { some in
+                    some === cmp
+                }
+
+                let index = self.currentComponents.index(where: compare)
+
+                if let index = index {
+                    self.currentComponents.remove(at: index)
+                }
+
+                self.proceedToGuestMode() }
+            print("intro has finished")
+        }
+
+    }
+
+    func guestModeFlowComponent() -> GuestModeComponent {
+        return GuestModeComponent(model: GuestModeModel()) { _ in
+            print("guest mode wants to exit")
+        }
+    }
+
+    func proceedToGuestMode() {
+        let guest = guestModeFlowComponent()
+        guest.start(from: rootContainer)
+    }
 }
 
 enum ViewControllerContainer {
@@ -29,9 +78,12 @@ enum ViewControllerContainer {
     }
 }
 
-enum ApplicationState {
+enum AppFlowComponents {
     case intro
     case guest
-    case auth
+    case signIn
+    case signUp
+    case signInSettings
     case user
 }
+
