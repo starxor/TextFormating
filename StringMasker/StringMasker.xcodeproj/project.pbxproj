@@ -17,6 +17,7 @@
 		794C3A431F3377C300C64AF3 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A421F3377C300C64AF3 /* TextFormatter.swift */; };
 		794C3A481F33813A00C64AF3 /* PhoneNumberKitMasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */; };
 		794C3A531F3382C100C64AF3 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */; };
+		795994DF1F4AE1AE00BA312B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795994DE1F4AE1AE00BA312B /* SignInViewController.swift */; };
 		79A79D771F41D40E00003BCE /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D761F41D40E00003BCE /* FlowCoordinator.swift */; };
 		79A79D791F41D42500003BCE /* AlfaAppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D781F41D42500003BCE /* AlfaAppFlowCoordinator.swift */; };
 		79A79D7B1F41ED1000003BCE /* SignInFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A79D7A1F41ED1000003BCE /* SignInFlowCoordinator.swift */; };
@@ -77,6 +78,7 @@
 		794C3A421F3377C300C64AF3 /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		794C3A471F33813A00C64AF3 /* PhoneNumberKitMasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberKitMasker.swift; sourceTree = "<group>"; };
 		794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		795994DE1F4AE1AE00BA312B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		79A79D761F41D40E00003BCE /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		79A79D781F41D42500003BCE /* AlfaAppFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaAppFlowCoordinator.swift; sourceTree = "<group>"; };
 		79A79D7A1F41ED1000003BCE /* SignInFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				79A79D7A1F41ED1000003BCE /* SignInFlowCoordinator.swift */,
 				79FE46641F472BCC007FF604 /* SignInFlowComponent.swift */,
+				795994DE1F4AE1AE00BA312B /* SignInViewController.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				79FE46671F473346007FF604 /* GuestModeComponent.swift in Sources */,
 				79AFBC0A1F46EF6C00417227 /* IntroPageViewController.swift in Sources */,
 				79AFBC171F47294500417227 /* SignUpFlowCoordinator.swift in Sources */,
+				795994DF1F4AE1AE00BA312B /* SignInViewController.swift in Sources */,
 				79A79D7D1F41ED3A00003BCE /* GuestFlowCoordinator.swift in Sources */,
 				79A79D791F41D42500003BCE /* AlfaAppFlowCoordinator.swift in Sources */,
 				79A79D7F1F41F44B00003BCE /* IntroductionFlowCoordinator.swift in Sources */,

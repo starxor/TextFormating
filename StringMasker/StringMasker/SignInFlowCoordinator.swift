@@ -31,4 +31,6 @@ class SignInFlowCoordinator {
     }
 
     var onExit: () -> Void = {}
+
+    var logInClosure: ((String?, String?) -> Void)?
 }
