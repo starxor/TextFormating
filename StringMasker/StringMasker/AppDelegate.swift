@@ -26,11 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         appCoord = AppCoordinator(rootContainer: .custom(window?.rootViewController ?? UIViewController()))
 
-        ctrl.onReady = { [unowned self] in
-            if !self.appCoord.isRuning {
-                self.appCoord.start()
-            }
-        }
+//        ctrl.onReady = { [unowned self] in
+//            if !self.appCoord.isRuning {
+//                self.appCoord.start()
+//            }
+//        }
 
         return true
     }
