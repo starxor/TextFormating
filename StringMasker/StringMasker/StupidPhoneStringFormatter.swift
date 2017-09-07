@@ -78,10 +78,7 @@ struct RegexStupidPhoneStringFormatter: TextFormatter {
     }
 
     func format(_ input: String) -> String {
-        let plain = input.replacingOccurrences(
-            of: descriptor.toPlainPattern, with: "", options: .regularExpression,
-            range: input.startIndex..<input.endIndex
-        )
+        let plain = input.replacingOccurrences(of: descriptor.toPlainPattern, with: "", options: .regularExpression)
         let applyMaskPattern = regionFormatPattern(for: plain) + descriptor.formatPattern
         let applyMask = plain.replacingOccurrences(
             of: applyMaskPattern,

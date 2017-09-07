@@ -53,6 +53,8 @@ class TextFieldController: NSObject, UITextFieldDelegate {
 
     private var textEditingResult = TextEditingResult(text: nil, selectedRange: .end)
 
+    var formatResult = FormatResult(string: "", carretPosition: .end)
+
     private func apply(editingResult result: TextEditingResult, to textField: UITextField) {
         textField.text = result.text
         switch result.selectedRange {
@@ -61,12 +63,14 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         case .end:
             textField.selectedTextRange = textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
         }
-
     }
 
     func textFieldEditingChanged(_ textField: UITextField) {
-//        apply(editingResult: textEditingResult, to: textField)
+        textField.text = formatResult.string
+        textField.selectedTextRange = formatResult.textPosition(in: textField)
     }
+
+    var formatter = PhoneNumberFormatter()
 
     func textField(
         _ textField: UITextField,
@@ -80,6 +84,8 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         if let text = textField.text {
             print("result: \(text.replacingCharacters(in: range.toStringIndexRange(in: text), with: string))")
         }
+
+        formatResult = formatter.format(existing: textField.text ?? "", input: string, range: range)
 //        var formated: String
 //        var selectedRange: TextEditingResult.SelectionRange
 //        if let text = textField.text {
@@ -148,5 +154,18 @@ class TextFieldController: NSObject, UITextFieldDelegate {
 //        textEditingResult.selectedRange = selectedRange
 
         return true
+    }
+}
+
+extension FormatResult {
+    func textPosition(in textField: UITextField) -> UITextRange? {
+        switch carretPosition {
+        case .end:
+            return textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
+        case .position(let pos):
+            guard let tpos = textField.position(from: textField.beginningOfDocument, offset: pos) else { return nil }
+
+            return textField.textRange(from: tpos, to: tpos)
+        }
     }
 }
