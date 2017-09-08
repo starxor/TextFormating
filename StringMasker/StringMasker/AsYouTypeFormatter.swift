@@ -30,12 +30,10 @@ extension AsYouTypeFormatter {
     }
 
     func inputAction(from input: String, targetRange range: NSRange, target: String) -> InputAction {
-        switch (range.length, input.characters.count) {
-        case (0, 1):
-            return .append(string: input, target: target)
-        case (1, 0):
-            return .deleteLast(target: target)
-        default:
+        let stringIndexRange = range.toStringIndexRange(in: target)
+        if stringIndexRange.lowerBound == target.endIndex {
+            return input.characters.count > 0 ? .append(string: input, target: target) : .deleteLast(target: target)
+        } else {
             if input.characters.count > 0 {
                 return .insertion(string: input, target: target, range: range.toStringIndexRange(in: target))
             } else {
@@ -46,7 +44,7 @@ extension AsYouTypeFormatter {
 }
 
 struct PhoneNumberFormatter: AsYouTypeFormatter {
-    var rusianNumbersOnly: Bool = false
+    var predefinedAreaCode: Int?
     func format(_ input: InputAction) -> FormatResult {
         switch input {
         case .append:
@@ -61,11 +59,12 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
                 resPos = .position(pos)
             }
             return FormatResult(string: formatted, carretPosition: resPos)
-        case .insertion(_, _, let range):
+        case .insertion(let string, let target, let range):
             let resStr = input.result
-            let prefix = resStr.substring(to: range.upperBound)
-            let suffix = resStr.substring(from: range.upperBound)
-            let formattedPrefix = format(prefix)
+            let prefix = target.substring(to: range.lowerBound)
+            let suffixRange = resStr.index(range.lowerBound, offsetBy: string.characters.count)
+			let suffix = resStr.substring(from: suffixRange)
+            let formattedPrefix = format(prefix + string)
             let resPos = CaretPosition.position(formattedPrefix.characters.count)
             let formatted = format(formattedPrefix+suffix)
             return FormatResult(string: formatted, carretPosition: resPos)
@@ -108,17 +107,28 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
 
 extension PhoneNumberFormatter {
     var formatPattern: String {
-        let firstPart = "((?<=.)[0-9]{1,3})?((?<=.{3})[0-9]{1,3})?"
+        var prefix = "((?<=.)"
+        if predefinedAreaCode != nil {
+            prefix = "^("
+        }
+        let firstPart = prefix + "[0-9]{1,3})?((?<=.{3})[0-9]{1,3})?"
         let secondPart = "((?<=.{2})[0-9]{1,2})?((?<=.{2})[0-9]{1,2})?((?<=.{2})[0-9]{1,4})?"
         return firstPart + secondPart
     }
 
     var toPlainPattern: String {
+        if let code = predefinedAreaCode {
+            return "^\\+\(code)|\\D"
+        }
         return "\\D"
     }
 
     var replacePattern: String {
-        return rusianNumbersOnly ? "+7 ($1) $2-$3-$4-$5" : "+$1 ($2) $3-$4-$5-$6"
+        if let areaCode = predefinedAreaCode {
+            return "+\(areaCode) ($1) $2-$3-$4-$5"
+        } else {
+            return "+$1 ($2) $3-$4-$5-$6"
+        }
     }
 
     var cleanPattern: String {
@@ -126,7 +136,7 @@ extension PhoneNumberFormatter {
     }
 
     func areaCodePattern(for areaCode: Int) -> String {
-        if rusianNumbersOnly {
+        if predefinedAreaCode != nil {
             return ""
         }
 
