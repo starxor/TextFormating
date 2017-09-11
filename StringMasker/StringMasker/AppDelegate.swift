@@ -12,25 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    private var appCoord: AppCoordinator!
-
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
         // Override point for customization after application launch.
-
-        guard let ctrl = window?.rootViewController as? ViewController else {
-            fatalError("Root container must be present")
-        }
-
-        appCoord = AppCoordinator(rootContainer: .custom(window?.rootViewController ?? UIViewController()))
-
-//        ctrl.onReady = { [unowned self] in
-//            if !self.appCoord.isRuning {
-//                self.appCoord.start()
-//            }
-//        }
 
         return true
     }

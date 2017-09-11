@@ -18,6 +18,26 @@ struct FormatResult {
     var carretPosition: CaretPosition
 }
 
+enum InputAction {
+    case append(string: String, target: String)
+    case deleteLast(target: String)
+    case deletion(target: String, range: Range<String.Index>)
+    case insertion(string: String, target: String, range: Range<String.Index>)
+
+    var result: String {
+        switch self {
+        case .append(let string, let target):
+            return target.appending(string)
+        case .deleteLast(let target):
+            return target.substring(to: target.index(before: target.endIndex))
+        case .deletion(let target, let range):
+            return target.replacingCharacters(in: range, with: "")
+        case .insertion(let string, let target, let range):
+            return target.replacingCharacters(in: range, with: string)
+        }
+    }
+}
+
 protocol AsYouTypeFormatter {
     func format(existing: String, input: String, range: NSRange) -> FormatResult
     func format(_ input: InputAction) -> FormatResult
