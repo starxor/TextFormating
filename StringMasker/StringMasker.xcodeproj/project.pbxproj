@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7902B86A1F66D7D700855C63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7902B8691F66D7D700855C63 /* Main.storyboard */; };
 		792B7EAC1F4F1030000D8274 /* NSRange+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */; };
 		794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A221F3377AF00C64AF3 /* AppDelegate.swift */; };
 		794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A241F3377AF00C64AF3 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7902B8691F66D7D700855C63 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Ext.swift"; sourceTree = "<group>"; };
 		794C3A1F1F3377AF00C64AF3 /* StringMasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringMasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A221F3377AF00C64AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
 				792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */,
 				79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */,
+				7902B8691F66D7D700855C63 /* Main.storyboard */,
 				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
 				794C3A2E1F3377AF00C64AF3 /* Info.plist */,
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7902B86A1F66D7D700855C63 /* Main.storyboard in Resources */,
 				794C3A2D1F3377AF00C64AF3 /* LaunchScreen.storyboard in Resources */,
 				794C3A2A1F3377AF00C64AF3 /* Assets.xcassets in Resources */,
 			);
