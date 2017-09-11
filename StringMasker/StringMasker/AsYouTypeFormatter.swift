@@ -44,7 +44,10 @@ extension AsYouTypeFormatter {
 }
 
 struct PhoneNumberFormatter: AsYouTypeFormatter {
-    var predefinedAreaCode: Int?
+    /// area code to substitute
+    var predefinedAreaCode: Int? = nil
+    /// number of digits without country code
+    var maxNumberLength: Int? = nil
     func format(_ input: InputAction) -> FormatResult {
         switch input {
         case .append:
@@ -76,7 +79,12 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
             return string
         }
 
-        let plain = string.replacingOccurrences(of: toPlainPattern, with: "", options: .regularExpression)
+        var plain = string.replacingOccurrences(of: toPlainPattern, with: "", options: .regularExpression)
+        if let maxNumbLength = maxNumberLength, plain.characters.count > maxNumbLength {
+            let index = plain.index(plain.startIndex, offsetBy: maxNumbLength)
+            plain = plain.substring(to: index)
+        }
+
         let acPattern: String
 
         if (plain.characters.count < 2) {
@@ -101,6 +109,7 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
 
         let formatted = plain.replacingOccurrences(of: fullPattern, with: replacePattern, options: .regularExpression)
         let clean = formatted.replacingOccurrences(of: cleanPattern, with: "", options: .regularExpression)
+
         return clean
     }
 }

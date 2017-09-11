@@ -70,7 +70,7 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         textField.selectedTextRange = formatResult.textPosition(in: textField)
     }
 
-    var formatter = PhoneNumberFormatter(predefinedAreaCode: 7)
+    var formatter = PhoneNumberFormatter(predefinedAreaCode: 7, maxNumberLength: 10)
 
     func textField(
         _ textField: UITextField,
