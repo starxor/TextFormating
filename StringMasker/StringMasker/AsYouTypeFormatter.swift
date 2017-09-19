@@ -70,27 +70,27 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
     var maxNumberLength: Int? = nil
     func format(_ input: InputAction) -> FormatResult {
         switch input {
-        case .append:
-            return FormatResult(string: format(input.result), carretPosition: .end)
-        case .deleteLast:
-            return FormatResult(string: input.result, carretPosition: .end)
-        case .deletion(let target, let range):
-            let pos = target.distance(from: target.startIndex, to: range.lowerBound)
-            let formatted = format(input.result)
-            var resPos = CaretPosition.end
-            if formatted.characters.count > pos {
-                resPos = .position(pos)
-            }
-            return FormatResult(string: formatted, carretPosition: resPos)
-        case .insertion(let string, let target, let range):
-            let resStr = input.result
-            let prefix = target.substring(to: range.lowerBound)
-            let suffixRange = resStr.index(range.lowerBound, offsetBy: string.characters.count)
-			let suffix = resStr.substring(from: suffixRange)
-            let formattedPrefix = format(prefix + string)
-            let resPos = CaretPosition.position(formattedPrefix.characters.count)
-            let formatted = format(formattedPrefix+suffix)
-            return FormatResult(string: formatted, carretPosition: resPos)
+            case .append:
+                return FormatResult(string: format(input.result), carretPosition: .end)
+            case .deleteLast:
+                return FormatResult(string: input.result, carretPosition: .end)
+            case .deletion(let target, let range):
+                let pos = target.distance(from: target.startIndex, to: range.lowerBound)
+                let formatted = format(input.result)
+                var resPos = CaretPosition.end
+                if formatted.characters.count > pos {
+                    resPos = .position(pos)
+                }
+                return FormatResult(string: formatted, carretPosition: resPos)
+            case .insertion(let string, let target, let range):
+                let resStr = input.result
+                let prefix = target.substring(to: range.lowerBound)
+                let suffixRange = resStr.index(range.lowerBound, offsetBy: string.characters.count)
+                let suffix = resStr.substring(from: suffixRange)
+                let formattedPrefix = format(prefix + string)
+                let resPos = CaretPosition.position(formattedPrefix.characters.count)
+                let formatted = format(formattedPrefix+suffix)
+                return FormatResult(string: formatted, carretPosition: resPos)
         }
     }
 

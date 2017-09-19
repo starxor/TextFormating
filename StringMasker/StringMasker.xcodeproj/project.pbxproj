@@ -16,6 +16,7 @@
 		794C3A381F3377B000C64AF3 /* StringMaskerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A371F3377B000C64AF3 /* StringMaskerTests.swift */; };
 		794C3A531F3382C100C64AF3 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */; };
 		79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */; };
+		79FF45301F716924004E2CC4 /* HardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF452F1F716924004E2CC4 /* HardTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		794C3A391F3377B000C64AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsYouTypeFormatter.swift; sourceTree = "<group>"; };
+		79FF452F1F716924004E2CC4 /* HardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
 				792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */,
 				79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */,
+				79FF452F1F716924004E2CC4 /* HardTableViewController.swift */,
 				7902B8691F66D7D700855C63 /* Main.storyboard */,
 				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79FF45301F716924004E2CC4 /* HardTableViewController.swift in Sources */,
 				794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */,
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				792B7EAC1F4F1030000D8274 /* NSRange+Ext.swift in Sources */,
