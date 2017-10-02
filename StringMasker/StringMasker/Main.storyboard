@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="esK-gy-YhT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f1C-Xy-iJx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="hTe-c7-vjf">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="f1C-Xy-iJx" customClass="ViewController" customModule="StringMasker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f1C-Xy-iJx" customClass="ViewController" customModule="StringMasker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WHl-MJ-aS2"/>
                         <viewControllerLayoutGuide type="bottom" id="4EL-Ur-EII"/>
@@ -44,86 +44,5 @@
             </objects>
             <point key="canvasLocation" x="-175" y="147"/>
         </scene>
-        <!--Hard Table View Controller-->
-        <scene sceneID="XJ8-vf-GX9">
-            <objects>
-                <viewController storyboardIdentifier="HardTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="esK-gy-YhT" customClass="HardTableViewController" customModule="StringMasker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SoF-ha-wLL"/>
-                        <viewControllerLayoutGuide type="bottom" id="jb3-e7-KDU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DHm-Pe-FXN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="159" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gIs-Q8-Vug">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SuperHardCell" rowHeight="159" id="9YA-Om-6xX" customClass="SuperHardCell" customModule="StringMasker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="159"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9YA-Om-6xX" id="3J8-dH-PGb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgq-uE-tr5">
-                                                    <rect key="frame" x="170.5" y="8" width="33.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vO-yc-dqN">
-                                                    <rect key="frame" x="151.5" y="129" width="70.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-dot-full" translatesAutoresizingMaskIntoConstraints="NO" id="MWo-eH-XHD">
-                                                    <rect key="frame" x="182.5" y="74" width="10" height="10"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="MWo-eH-XHD" firstAttribute="centerY" secondItem="3J8-dH-PGb" secondAttribute="centerY" id="GtS-4Q-3zS"/>
-                                                <constraint firstItem="7vO-yc-dqN" firstAttribute="centerX" secondItem="Dgq-uE-tr5" secondAttribute="centerX" id="OWY-A7-7Dc"/>
-                                                <constraint firstItem="Dgq-uE-tr5" firstAttribute="centerX" secondItem="3J8-dH-PGb" secondAttribute="centerX" id="bUy-1i-ZEG"/>
-                                                <constraint firstItem="MWo-eH-XHD" firstAttribute="centerX" secondItem="3J8-dH-PGb" secondAttribute="centerX" id="hji-uZ-ofr"/>
-                                                <constraint firstAttribute="bottom" secondItem="7vO-yc-dqN" secondAttribute="bottom" constant="8.5" id="pyq-Fh-0J5"/>
-                                                <constraint firstItem="Dgq-uE-tr5" firstAttribute="top" secondItem="3J8-dH-PGb" secondAttribute="top" constant="8" id="tjF-eU-VTi"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="bottomLabel" destination="7vO-yc-dqN" id="TB7-qT-bi2"/>
-                                            <outlet property="dot" destination="MWo-eH-XHD" id="6S7-JA-RZa"/>
-                                            <outlet property="dotCenterY" destination="GtS-4Q-3zS" id="N2w-07-kCp"/>
-                                            <outlet property="topLabel" destination="Dgq-uE-tr5" id="dK0-NX-afu"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="esK-gy-YhT" id="EWs-yJ-SVR"/>
-                                    <outlet property="delegate" destination="esK-gy-YhT" id="TWP-hm-IgC"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gIs-Q8-Vug" firstAttribute="top" secondItem="SoF-ha-wLL" secondAttribute="bottom" id="6wN-yK-Edg"/>
-                            <constraint firstItem="gIs-Q8-Vug" firstAttribute="leading" secondItem="DHm-Pe-FXN" secondAttribute="leading" id="M0B-Ll-m9t"/>
-                            <constraint firstAttribute="trailing" secondItem="gIs-Q8-Vug" secondAttribute="trailing" id="YVw-30-rFr"/>
-                            <constraint firstItem="jb3-e7-KDU" firstAttribute="top" secondItem="gIs-Q8-Vug" secondAttribute="bottom" id="we8-k7-XED"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="gIs-Q8-Vug" id="Jeb-Yb-UGA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BEs-HX-plT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="676" y="146.17691154422789"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="calendar-dot-full" width="10" height="10"/>
-    </resources>
 </document>

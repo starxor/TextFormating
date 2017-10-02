@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 
     var onReady: () -> Void = {}
 
+    let opQueue = OperationQueue()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,25 @@ class ViewController: UIViewController {
             textField: textField,
             asYouTypeFormatter: PhoneNumberFormatter(predefinedAreaCode: 7, maxNumberLength: 10)
         )
+
+        opQueue.qualityOfService = .default
+
+        let op1 = TestOperation(label: "OP1")
+        let op2 = TestOperation(label: "OP2")
+        let op3 = TestOperation(label: "OP3")
+        let op4 = TestOperation(label: "OP4")
+        let op5 = TestOperation(label: "OP5")
+
+        op2.addDependency(op1)
+        op3.addDependency(op2)
+        op4.addDependency(op3)
+
+        opQueue.addOperations([op1, op2, op3, op4, op5], waitUntilFinished: false)
+
+        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: oneSecond) {
+            op2.cancel()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +66,7 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
     }
 
-    func textFieldEditingChanged(_ textField: UITextField) {
+    @objc func textFieldEditingChanged(_ textField: UITextField) {
         textField.text = formatResult.string
         textField.selectedTextRange = formatResult.textPosition(in: textField)
     }
@@ -58,18 +79,5 @@ class TextFieldController: NSObject, UITextFieldDelegate {
         formatResult = formatter.format(existing: textField.text ?? "", input: string, range: range)
 
         return true
-    }
-}
-
-extension FormatResult {
-    func textPosition(in textField: UITextField) -> UITextRange? {
-        switch carretPosition {
-        case .end:
-            return textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
-        case .position(let pos):
-            guard let tpos = textField.position(from: textField.beginningOfDocument, offset: pos) else { return nil }
-
-            return textField.textRange(from: tpos, to: tpos)
-        }
     }
 }

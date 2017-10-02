@@ -14,9 +14,9 @@
 		794C3A2A1F3377AF00C64AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A291F3377AF00C64AF3 /* Assets.xcassets */; };
 		794C3A2D1F3377AF00C64AF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */; };
 		794C3A381F3377B000C64AF3 /* StringMaskerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A371F3377B000C64AF3 /* StringMaskerTests.swift */; };
-		794C3A531F3382C100C64AF3 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */; };
+		79750B721F7A563400A639D3 /* FormatResult+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79750B711F7A563400A639D3 /* FormatResult+Ext.swift */; };
+		79750B741F7A678900A639D3 /* PlayingWithOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79750B731F7A678900A639D3 /* PlayingWithOperations.swift */; };
 		79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */; };
-		79FF45301F716924004E2CC4 /* HardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF452F1F716924004E2CC4 /* HardTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		794C3A331F3377B000C64AF3 /* StringMaskerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringMaskerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A371F3377B000C64AF3 /* StringMaskerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMaskerTests.swift; sourceTree = "<group>"; };
 		794C3A391F3377B000C64AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		79750B711F7A563400A639D3 /* FormatResult+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormatResult+Ext.swift"; sourceTree = "<group>"; };
+		79750B731F7A678900A639D3 /* PlayingWithOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingWithOperations.swift; sourceTree = "<group>"; };
 		79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsYouTypeFormatter.swift; sourceTree = "<group>"; };
-		79FF452F1F716924004E2CC4 /* HardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				794C3A531F3382C100C64AF3 /* PhoneNumberKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +80,6 @@
 		794C3A161F3377AF00C64AF3 = {
 			isa = PBXGroup;
 			children = (
-				794C3A521F3382C100C64AF3 /* PhoneNumberKit.framework */,
 				794C3A211F3377AF00C64AF3 /* StringMasker */,
 				794C3A361F3377B000C64AF3 /* StringMaskerTests */,
 				794C3A201F3377AF00C64AF3 /* Products */,
@@ -104,7 +102,8 @@
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
 				792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */,
 				79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */,
-				79FF452F1F716924004E2CC4 /* HardTableViewController.swift */,
+				79750B711F7A563400A639D3 /* FormatResult+Ext.swift */,
+				79750B731F7A678900A639D3 /* PlayingWithOperations.swift */,
 				7902B8691F66D7D700855C63 /* Main.storyboard */,
 				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
@@ -176,11 +175,13 @@
 					794C3A1E1F3377AF00C64AF3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = BEVSU9VX44;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					794C3A321F3377B000C64AF3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = BEVSU9VX44;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 794C3A1E1F3377AF00C64AF3;
 					};
@@ -246,7 +247,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/PhoneNumberKit.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -262,10 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79FF45301F716924004E2CC4 /* HardTableViewController.swift in Sources */,
 				794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */,
+				79750B721F7A563400A639D3 /* FormatResult+Ext.swift in Sources */,
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				792B7EAC1F4F1030000D8274 /* NSRange+Ext.swift in Sources */,
+				79750B741F7A678900A639D3 /* PlayingWithOperations.swift in Sources */,
 				79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,7 +410,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -427,7 +429,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -441,7 +444,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMaskerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StringMasker.app/StringMasker";
 			};
 			name = Debug;
@@ -456,7 +460,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMaskerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StringMasker.app/StringMasker";
 			};
 			name = Release;

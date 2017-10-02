@@ -29,7 +29,7 @@ enum InputAction {
         case .append(let string, let target):
             return target.appending(string)
         case .deleteLast(let target):
-            return target.substring(to: target.index(before: target.endIndex))
+            return String(target[..<target.index(before: target.endIndex)])
         case .deletion(let target, let range):
             return target.replacingCharacters(in: range, with: "")
         case .insertion(let string, let target, let range):
@@ -84,9 +84,9 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
                 return FormatResult(string: formatted, carretPosition: resPos)
             case .insertion(let string, let target, let range):
                 let resStr = input.result
-                let prefix = target.substring(to: range.lowerBound)
+                let prefix = String(target[..<range.lowerBound])
                 let suffixRange = resStr.index(range.lowerBound, offsetBy: string.characters.count)
-                let suffix = resStr.substring(from: suffixRange)
+                let suffix = String(resStr[..<suffixRange])
                 let formattedPrefix = format(prefix + string)
                 let resPos = CaretPosition.position(formattedPrefix.characters.count)
                 let formatted = format(formattedPrefix+suffix)
@@ -102,7 +102,7 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
         var plain = string.replacingOccurrences(of: toPlainPattern, with: "", options: .regularExpression)
         if let maxNumbLength = maxNumberLength, plain.characters.count > maxNumbLength {
             let index = plain.index(plain.startIndex, offsetBy: maxNumbLength)
-            plain = plain.substring(to: index)
+            plain = String(plain[..<index])
         }
 
         let acPattern: String
@@ -114,9 +114,9 @@ struct PhoneNumberFormatter: AsYouTypeFormatter {
             let takeFirstIndex = plain.index(plain.startIndex, offsetBy: 1)
             let takeFirstTwoIndex = plain.index(plain.startIndex, offsetBy: 2)
 
-            guard let tryFirst = Int(plain.substring(to: takeFirstIndex)) else { return "" }
+            guard let tryFirst = Int(String(plain[..<takeFirstIndex])) else { return "" }
 
-            guard let tryFirstTwo = Int(plain.substring(to: takeFirstTwoIndex)) else { return "" }
+            guard let tryFirstTwo = Int(String(plain[..<takeFirstTwoIndex])) else { return "" }
 
             if tryFirst == 1 || tryFirst == 7 {
                 acPattern = areaCodePattern(for: tryFirst)
