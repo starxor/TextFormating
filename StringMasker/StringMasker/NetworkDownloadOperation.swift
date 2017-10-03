@@ -1,36 +1,35 @@
 //
-//  PlayingWithOperations.swift
+//  NetworkDownloadOperation.swift
 //  StringMasker
 //
-//  Created by Stanislav Starzhevskiy on 26.09.17.
+//  Created by Stanislav Starzhevskiy on 03.10.17.
 //  Copyright © 2017 _My_Company_. All rights reserved.
 //
 
 import Foundation
 
-protocol RequiredOperationDependency {
-    var isRequired: Bool { get set }
-}
+class NetworkDownloadOperation: Operation, RequiredOperationDependency {
+    var isRequired: Bool = false
 
-class TestOperation: Operation, RequiredOperationDependency {
     private var _finished: Bool = false {
-        willSet {
-            willChangeValue(forKey: "isFinished")
-        }
-
-        didSet {
-            didChangeValue(forKey: "isFinished")
-        }
+        willSet { willChangeValue(forKey: "isFinished") }
+        didSet { didChangeValue(forKey: "isFinished") }
     }
 
-    var isRequired: Bool = false
     private(set) var label: String
+    private(set) var url: URL
 
-    init(label: String) {
+    init(label: String, url: URL) {
         self.label = label
+        self.url = url
     }
 
     override func main() {
+        guard !isCancelled else {
+            print("\(type(of: self)).\(self.label) was canceled")
+            return
+        }
+
         for dependency in dependencies {
             if let op = dependency as? RequiredOperationDependency, op.isRequired, dependency.isCancelled {
                 print("\(type(of: self)).\(self.label) cancel() self because required dependecy was canceled")
@@ -38,8 +37,6 @@ class TestOperation: Operation, RequiredOperationDependency {
                 return
             }
         }
-
-        guard !isCancelled else { return }
 
         let time = DispatchTime.now() + DispatchTimeInterval.seconds(3)
         DispatchQueue.main.asyncAfter(deadline: time) { [weak self] in
