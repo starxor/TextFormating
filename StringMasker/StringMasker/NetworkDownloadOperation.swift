@@ -8,22 +8,25 @@
 
 import Foundation
 
-class NetworkDownloadOperation: Operation, RequiredOperationDependency {
-    var isRequired: Bool = false
+protocol LabeledEntity {
+    var label: String { get }
+}
 
-    private var _finished: Bool = false {
-        willSet { willChangeValue(forKey: "isFinished") }
-        didSet { didChangeValue(forKey: "isFinished") }
-    }
+protocol RequiredOperationDependency {
+    var isRequired: Bool { get }
+}
 
+class NetworkOperation: Operation, LabeledEntity, RequiredOperationDependency {
     private(set) var label: String
     private(set) var url: URL
+    private(set) var isRequired: Bool
 
-    init(label: String, url: URL) {
+    init(label: String, url: URL, isRequired: Bool = false) {
         self.label = label
         self.url = url
+        self.isRequired = isRequired
     }
-
+    // MARK: - Main
     override func main() {
         guard !isCancelled else {
             print("\(type(of: self)).\(self.label) was canceled")
@@ -38,21 +41,20 @@ class NetworkDownloadOperation: Operation, RequiredOperationDependency {
             }
         }
 
-        let time = DispatchTime.now() + DispatchTimeInterval.seconds(3)
-        DispatchQueue.main.asyncAfter(deadline: time) { [weak self] in
-            guard let `self` = self else {
-                print("Operation was released before we got in asyncAfter")
-                return
-            }
-            print("\(type(of: self)).\(self.label) executes \(#function) async after \(time.rawValue)")
-            self._finished = true
-        }
+        //Implement actual functionality in subclasses
+    }
+
+    // MARK: - Finished state managment
+    private var _finished: Bool = false {
+        willSet { willChangeValue(forKey: "isFinished") }
+        didSet { didChangeValue(forKey: "isFinished") }
     }
 
     override var isFinished: Bool {
         return _finished
     }
 
+    // MARK: - Canceling
     override func cancel() {
         super.cancel()
         print("\(type(of: self)).\(self.label) will \(#function)")
@@ -63,3 +65,5 @@ class NetworkDownloadOperation: Operation, RequiredOperationDependency {
         print("\(type(of: self)).\(self.label) will \(#function)")
     }
 }
+
+class NetworkDownloadOperation: NetworkOperation {}

@@ -17,6 +17,8 @@
 		79750B721F7A563400A639D3 /* FormatResult+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79750B711F7A563400A639D3 /* FormatResult+Ext.swift */; };
 		79750B741F7A678900A639D3 /* PlayingWithOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79750B731F7A678900A639D3 /* PlayingWithOperations.swift */; };
 		79A038D61F83A41A002A22B8 /* NetworkDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A038D51F83A41A002A22B8 /* NetworkDownloadOperation.swift */; };
+		79A0399D1F83CA3A002A22B8 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A0399C1F83CA3A002A22B8 /* Logging.swift */; };
+		79A0399F1F83D759002A22B8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A0399E1F83D758002A22B8 /* HTTPMethod.swift */; };
 		79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +139,8 @@
 		79A039981F83AB97002A22B8 /* UIView+Fade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Fade.swift"; sourceTree = "<group>"; };
 		79A039991F83AB97002A22B8 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		79A0399A1F83AB97002A22B8 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
+		79A0399C1F83CA3A002A22B8 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		79A0399E1F83D758002A22B8 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsYouTypeFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +190,9 @@
 				79750B711F7A563400A639D3 /* FormatResult+Ext.swift */,
 				79750B731F7A678900A639D3 /* PlayingWithOperations.swift */,
 				79A038D51F83A41A002A22B8 /* NetworkDownloadOperation.swift */,
+				79A0399E1F83D758002A22B8 /* HTTPMethod.swift */,
+				79A0399C1F83CA3A002A22B8 /* Logging.swift */,
+				79A0399B1F83B726002A22B8 /* Resources */,
 				79A038D81F83A740002A22B8 /* Third party */,
 				79A038D71F83A724002A22B8 /* Supporting files */,
 			);
@@ -205,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				7902B8691F66D7D700855C63 /* Main.storyboard */,
-				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
 				794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */,
 				794C3A2E1F3377AF00C64AF3 /* Info.plist */,
 			);
@@ -442,6 +448,14 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		79A0399B1F83B726002A22B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				794C3A291F3377AF00C64AF3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -588,8 +602,10 @@
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				792B7EAC1F4F1030000D8274 /* NSRange+Ext.swift in Sources */,
 				79750B741F7A678900A639D3 /* PlayingWithOperations.swift in Sources */,
+				79A0399F1F83D759002A22B8 /* HTTPMethod.swift in Sources */,
 				79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */,
 				79A038D61F83A41A002A22B8 /* NetworkDownloadOperation.swift in Sources */,
+				79A0399D1F83CA3A002A22B8 /* Logging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,7 +743,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = StringMasker/Info.plist;
+				INFOPLIST_FILE = "StringMasker/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
@@ -746,7 +762,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = StringMasker/Info.plist;
+				INFOPLIST_FILE = "StringMasker/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";

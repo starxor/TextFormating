@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol RequiredOperationDependency {
-    var isRequired: Bool { get set }
-}
-
 class TestOperation: Operation, RequiredOperationDependency {
     private var _finished: Bool = false {
         willSet {
