@@ -27,27 +27,31 @@ class ViewController: UIViewController {
 
         opQueue.qualityOfService = .default
 
-        let op1 = TestOperation(label: "OP1")
-        let op2 = TestOperation(label: "OP2")
-        let op3 = TestOperation(label: "OP3")
-        let op4 = TestOperation(label: "OP4")
-        let op5 = TestOperation(label: "OP5")
+//        let op1 = TestOperation(label: "OP1")
+//        let op2 = TestOperation(label: "OP2")
+//        let op3 = TestOperation(label: "OP3")
+//        let op4 = TestOperation(label: "OP4")
+//        let op5 = TestOperation(label: "OP5")
+//
+//        op3.isRequired = true
+//        op4.isRequired = true
+//
+//        op2.addDependency(op1)
+//        op3.addDependency(op2)
+//        op4.addDependency(op3)
+//        op5.addDependency(op4)
+//
+//        opQueue.addOperations([op1, op2, op3, op4, op5], waitUntilFinished: false)
 
-        op3.isRequired = true
-        op4.isRequired = true
+        let op6 = NetworkDownloadOperation(label: "TestDownload", url: URL(string: "www.google.com")!)
 
-        op2.addDependency(op1)
-        op3.addDependency(op2)
-        op4.addDependency(op3)
-        op5.addDependency(op4)
+        opQueue.addOperation(op6)
 
-        opQueue.addOperations([op1, op2, op3, op4, op5], waitUntilFinished: false)
-
-        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: oneSecond) {
-            op2.cancel()
-            op4.cancel()
-        }
+//        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
+//        DispatchQueue.main.asyncAfter(deadline: oneSecond) {
+//            op2.cancel()
+//            op4.cancel()
+//        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

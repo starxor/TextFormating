@@ -22,3 +22,13 @@ extension ActionLogger where Self: LabeledEntity {
         print("\(Swift.type(of: self)).\(label) ➡️ \(action.debugDescription)")
     }
 }
+
+enum NetworkOperationAction {
+    case willRequestForResourceAtURL(URL)
+    case willPerformRequest(URLRequest)
+    case didRecieveResponseForRequest(URLRequest)
+    case didStartedLoadingResourceFromURL(URL)
+    case didRecieveData(progress: Progress)
+    case didDownloadResource(fromURL:URL, localURL: URL)
+    case didDownloadData(forRequest: URLRequest, localURL: URL)
+}
