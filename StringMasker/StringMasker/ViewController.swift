@@ -43,9 +43,12 @@ class ViewController: UIViewController {
 //
 //        opQueue.addOperations([op1, op2, op3, op4, op5], waitUntilFinished: false)
 
-        let op6 = NetworkDownloadOperation(label: "TestDownload", url: URL(string: "www.google.com")!)
+        let testPath = "https://images7.alphacoders.com/320/320986.jpg"
+        let op6 = NetworkDownloadOperation(url: URL(string: testPath)!, label: "TestDownload")
+        let op7 = NetworkDownloadOperation(url: URL(string: testPath)!, label: "TestDownload2")
 
         opQueue.addOperation(op6)
+        opQueue.addOperation(op7)
 
 //        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
 //        DispatchQueue.main.asyncAfter(deadline: oneSecond) {

@@ -8,66 +8,12 @@
 
 import Foundation
 
-protocol LabeledEntity {
-    var label: String { get }
-}
-
-protocol RequiredOperationDependency {
-    var isRequired: Bool { get }
-}
-
-class NetworkOperation: Operation, LabeledEntity, RequiredOperationDependency {
-    private(set) var label: String
+class NetworkOperation: CustomCancelableOperation {
     private(set) var url: URL
-    private(set) var isRequired: Bool
 
-    init(label: String, url: URL, isRequired: Bool = false) {
-        self.label = label
+    init(url: URL, label: String = "<No Label>", isRequired: Bool = false) {
         self.url = url
-        self.isRequired = isRequired
-    }
-
-    // MARK: - Validate execution
-    func canRun() -> Bool {
-        guard !isCancelled else {
-            print("\(type(of: self)).\(self.label) was canceled")
-            return false
-        }
-
-        for dependency in dependencies {
-            if let op = dependency as? RequiredOperationDependency, op.isRequired, dependency.isCancelled {
-                print("\(type(of: self)).\(self.label) cancel() self because required dependecy was canceled")
-                cancel()
-                return false
-            }
-        }
-
-        return true
-    }
-
-    // MARK: - Finished state managment
-    func finish() {
-        _finished = true
-    }
-
-    private var _finished: Bool = false {
-        willSet { willChangeValue(forKey: "isFinished") }
-        didSet { didChangeValue(forKey: "isFinished") }
-    }
-
-    override var isFinished: Bool {
-        return _finished
-    }
-
-    // MARK: - Canceling
-    override func cancel() {
-        super.cancel()
-        print("\(type(of: self)).\(self.label) will \(#function)")
-        _finished = true
-    }
-
-    deinit {
-        print("\(type(of: self)).\(self.label) will \(#function)")
+        super.init(label: label, isRequired: isRequired)
     }
 }
 
@@ -87,17 +33,22 @@ class NetworkDownloadOperation: NetworkOperation {
     var downloadProgress: Progress = Progress(totalUnitCount: -1)
 
     override func main() {
-        guard canRun() else { return }
+        guard canRun else { return }
 
-        // TODO: Logic
-        guard let url = URL(string: "https://i.imgur.com/AEGaQNj.jpg") else { return }
-
+        debugLog(action: NetworkOperationAction.willRequestForResourceAtURL(url))
         task = session.downloadTask(with: url)
         task?.resume()
     }
 
+    func updated(downloadProgress from: Progress, to progress: Progress) {
+        if (from.totalUnitCount == -1) && (progress.totalUnitCount != -1) {
+            debugLog(action: NetworkOperationAction.didStartedLoadingResourceFromURL(url))
+        }
+        debugLog(action: NetworkOperationAction.didRecieveData(progress: downloadProgress))
+    }
+
     func downloadedFile(tempLocalURL: URL) {
-        print("File successfuly downloaded to \(tempLocalURL)")
+        debugLog(action: NetworkOperationAction.didDownloadResource(fromURL: url, localURL: tempLocalURL))
     }
 }
 
@@ -114,13 +65,15 @@ extension NetworkDownloadOperation: URLSessionDownloadDelegate {
                     totalBytesWritten: Int64,
                     totalBytesExpectedToWrite: Int64) {
 
+        let old = Progress(totalUnitCount: downloadProgress.totalUnitCount)
+        old.completedUnitCount = downloadProgress.completedUnitCount
+
         if downloadProgress.totalUnitCount == -1 {
             downloadProgress.totalUnitCount = totalBytesExpectedToWrite
         }
 
         downloadProgress.completedUnitCount = totalBytesWritten
-
-        print(downloadProgress.localizedDescription)
+        updated(downloadProgress: old, to: downloadProgress)
     }
 }
 
@@ -133,13 +86,13 @@ extension NetworkDownloadOperation: URLSessionTaskDelegate {
             return
         }
 
-        print("\(type(of: self)).\(label) \(#function) \n \(error.localizedDescription)")
+        debugLog(action: NetworkOperationAction.didFail(error))
     }
 
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
         defer { isFinished ? nil : finish() }
         guard let error = error else { return }
 
-        print("\(type(of: self)).\(label) \(#function) \n \(error.localizedDescription)")
+        debugLog(action: NetworkOperationAction.didFail(error))
     }
 }

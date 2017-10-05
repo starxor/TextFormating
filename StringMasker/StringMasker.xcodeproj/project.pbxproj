@@ -19,6 +19,9 @@
 		79A038D61F83A41A002A22B8 /* NetworkDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A038D51F83A41A002A22B8 /* NetworkDownloadOperation.swift */; };
 		79A0399D1F83CA3A002A22B8 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A0399C1F83CA3A002A22B8 /* Logging.swift */; };
 		79A0399F1F83D759002A22B8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A0399E1F83D758002A22B8 /* HTTPMethod.swift */; };
+		79E432441F865758001D951F /* some.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E432431F865758001D951F /* some.swift */; };
+		79E432461F866049001D951F /* CustomCancelableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E432451F866049001D951F /* CustomCancelableOperation.swift */; };
+		79E432481F866175001D951F /* LabeledEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E432471F866175001D951F /* LabeledEntity.swift */; };
 		79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +144,9 @@
 		79A0399A1F83AB97002A22B8 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
 		79A0399C1F83CA3A002A22B8 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		79A0399E1F83D758002A22B8 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		79E432431F865758001D951F /* some.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = some.swift; sourceTree = "<group>"; };
+		79E432451F866049001D951F /* CustomCancelableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCancelableOperation.swift; sourceTree = "<group>"; };
+		79E432471F866175001D951F /* LabeledEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledEntity.swift; sourceTree = "<group>"; };
 		79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsYouTypeFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,9 +195,12 @@
 				79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */,
 				79750B711F7A563400A639D3 /* FormatResult+Ext.swift */,
 				79750B731F7A678900A639D3 /* PlayingWithOperations.swift */,
+				79E432471F866175001D951F /* LabeledEntity.swift */,
+				79E432451F866049001D951F /* CustomCancelableOperation.swift */,
 				79A038D51F83A41A002A22B8 /* NetworkDownloadOperation.swift */,
 				79A0399E1F83D758002A22B8 /* HTTPMethod.swift */,
 				79A0399C1F83CA3A002A22B8 /* Logging.swift */,
+				79E432431F865758001D951F /* some.swift */,
 				79A0399B1F83B726002A22B8 /* Resources */,
 				79A038D81F83A740002A22B8 /* Third party */,
 				79A038D71F83A724002A22B8 /* Supporting files */,
@@ -504,7 +513,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = _My_Company_;
 				TargetAttributes = {
 					794C3A1E1F3377AF00C64AF3 = {
@@ -602,10 +611,13 @@
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				792B7EAC1F4F1030000D8274 /* NSRange+Ext.swift in Sources */,
 				79750B741F7A678900A639D3 /* PlayingWithOperations.swift in Sources */,
+				79E432441F865758001D951F /* some.swift in Sources */,
 				79A0399F1F83D759002A22B8 /* HTTPMethod.swift in Sources */,
 				79F8301C1F60269700ADAF9B /* AsYouTypeFormatter.swift in Sources */,
+				79E432481F866175001D951F /* LabeledEntity.swift in Sources */,
 				79A038D61F83A41A002A22B8 /* NetworkDownloadOperation.swift in Sources */,
 				79A0399D1F83CA3A002A22B8 /* Logging.swift in Sources */,
+				79E432461F866049001D951F /* CustomCancelableOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +661,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -657,7 +671,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -700,7 +718,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -708,7 +728,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -748,7 +772,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -767,7 +791,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMasker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -782,7 +806,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMaskerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StringMasker.app/StringMasker";
 			};
@@ -798,7 +822,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my-company.StringMaskerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StringMasker.app/StringMasker";
 			};
