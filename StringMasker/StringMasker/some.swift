@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct TestSt: Codable {
+    var field1: String
+    var field2: String
+}
+
 protocol TestProtocol {
     func ololo()
 }
