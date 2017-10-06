@@ -16,6 +16,7 @@ class NetworkOperation: CustomCancelableOperation {
 
     private(set) var url: URL
     private(set) var session: URLSession
+    var task: URLSessionTask { assert(false, "Implemented by subclasses") }
 
     init(url: URL, label: String = "<No Label>", session: URLSession = URLSession.shared, isRequired: Bool = false) {
         self.url = url

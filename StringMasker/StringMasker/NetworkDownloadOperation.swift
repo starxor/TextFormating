@@ -9,7 +9,10 @@
 import Foundation
 
 class NetworkDownloadOperation: NetworkOperation {
-    private var task: URLSessionDownloadTask?
+    private var downloadTask: URLSessionDownloadTask!
+    override var task: URLSessionTask {
+        return downloadTask
+    }
 
     var downloadProgress: Progress = Progress(totalUnitCount: -1)
 
@@ -17,8 +20,8 @@ class NetworkDownloadOperation: NetworkOperation {
         guard canRun else { return }
 
         debugLog(action: NetworkOperationAction.willRequestForResourceAtURL(url))
-        task = session.downloadTask(with: url)
-        task?.resume()
+        downloadTask = session.downloadTask(with: url)
+        downloadTask?.resume()
     }
 
     func updated(downloadProgress from: Progress, to progress: Progress) {

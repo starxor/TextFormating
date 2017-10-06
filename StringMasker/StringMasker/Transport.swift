@@ -8,12 +8,18 @@
 
 import Foundation
 
-protocol Transport {
-    func send()
-    func get()
+struct NetworkRequest<T> {
+    var value: T
+    init(_ value: T) { self.value = value }
 }
 
-class URLSessionTransport: NSObject {
+protocol NetworkTransport {
+    associatedtype RequestType
+    func perform(request: NetworkRequest<RequestType>)
+}
+
+class URLSessionTransport: NSObject, NetworkTransport {
+    typealias RequestType = URLRequest
     private(set) var session: URLSession!
     private var queue: OperationQueue = OperationQueue()
 
@@ -24,8 +30,12 @@ class URLSessionTransport: NSObject {
     }
 
     func send() {
-        let op = NetworkDownloadOperation(url: URL(string: "www.google.com")!)
-        queue.addOperation(op)
+        var request = URLRequest(url: URL(string: "www.google.com")!)
+        request.httpMethod = HTTPMethod.POST.rawValue
+    }
+
+    func perform(request: NetworkRequest<URLRequest>) {
+
     }
 }
 
