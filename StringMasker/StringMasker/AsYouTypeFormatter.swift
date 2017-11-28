@@ -52,9 +52,9 @@ extension AsYouTypeFormatter {
     func inputAction(from input: String, targetRange range: NSRange, target: String) -> InputAction {
         let stringIndexRange = range.toStringIndexRange(in: target)
         if stringIndexRange.lowerBound == target.endIndex {
-            return input.characters.count > 0 ? .append(string: input, target: target) : .deleteLast(target: target)
+            return input.count > 0 ? .append(string: input, target: target) : .deleteLast(target: target)
         } else {
-            if input.characters.count > 0 {
+            if input.count > 0 {
                 return .insertion(string: input, target: target, range: range.toStringIndexRange(in: target))
             } else {
                 return .deletion(target: target, range: range.toStringIndexRange(in: target))

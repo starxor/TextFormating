@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		7902B86A1F66D7D700855C63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7902B8691F66D7D700855C63 /* Main.storyboard */; };
 		792B7EAC1F4F1030000D8274 /* NSRange+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */; };
+		7931D3131FB330AA00C42CC1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931D3121FB330AA00C42CC1 /* CustomButton.swift */; };
+		793E438C1F94B92F00E0645B /* TextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E438B1F94B92F00E0645B /* TextFieldController.swift */; };
 		794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A221F3377AF00C64AF3 /* AppDelegate.swift */; };
 		794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A241F3377AF00C64AF3 /* ViewController.swift */; };
 		794C3A2A1F3377AF00C64AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A291F3377AF00C64AF3 /* Assets.xcassets */; };
 		794C3A2D1F3377AF00C64AF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794C3A2B1F3377AF00C64AF3 /* LaunchScreen.storyboard */; };
 		794C3A381F3377B000C64AF3 /* StringMaskerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C3A371F3377B000C64AF3 /* StringMaskerTests.swift */; };
+		7950B1381FCD8C09009F6F30 /* MultiSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7950B1371FCD8C09009F6F30 /* MultiSwitch.swift */; };
 		79750B721F7A563400A639D3 /* FormatResult+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79750B711F7A563400A639D3 /* FormatResult+Ext.swift */; };
 		79750B741F7A678900A639D3 /* PlayingWithOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79750B731F7A678900A639D3 /* PlayingWithOperations.swift */; };
 		79A038D61F83A41A002A22B8 /* NetworkDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A038D51F83A41A002A22B8 /* NetworkDownloadOperation.swift */; };
@@ -55,6 +58,8 @@
 /* Begin PBXFileReference section */
 		7902B8691F66D7D700855C63 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Ext.swift"; sourceTree = "<group>"; };
+		7931D3121FB330AA00C42CC1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		793E438B1F94B92F00E0645B /* TextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldController.swift; sourceTree = "<group>"; };
 		794C3A1F1F3377AF00C64AF3 /* StringMasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringMasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A221F3377AF00C64AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794C3A241F3377AF00C64AF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 		794C3A331F3377B000C64AF3 /* StringMaskerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringMaskerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		794C3A371F3377B000C64AF3 /* StringMaskerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMaskerTests.swift; sourceTree = "<group>"; };
 		794C3A391F3377B000C64AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7950B1371FCD8C09009F6F30 /* MultiSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSwitch.swift; sourceTree = "<group>"; };
 		79750B711F7A563400A639D3 /* FormatResult+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormatResult+Ext.swift"; sourceTree = "<group>"; };
 		79750B731F7A678900A639D3 /* PlayingWithOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingWithOperations.swift; sourceTree = "<group>"; };
 		79A038D51F83A41A002A22B8 /* NetworkDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDownloadOperation.swift; sourceTree = "<group>"; };
@@ -199,6 +205,9 @@
 			children = (
 				794C3A221F3377AF00C64AF3 /* AppDelegate.swift */,
 				794C3A241F3377AF00C64AF3 /* ViewController.swift */,
+				7950B1371FCD8C09009F6F30 /* MultiSwitch.swift */,
+				7931D3121FB330AA00C42CC1 /* CustomButton.swift */,
+				793E438B1F94B92F00E0645B /* TextFieldController.swift */,
 				792B7EAB1F4F1030000D8274 /* NSRange+Ext.swift */,
 				79F8301B1F60269700ADAF9B /* AsYouTypeFormatter.swift */,
 				79750B711F7A563400A639D3 /* FormatResult+Ext.swift */,
@@ -620,6 +629,8 @@
 			files = (
 				794C3A251F3377AF00C64AF3 /* ViewController.swift in Sources */,
 				79E4324C1F869F89001D951F /* Transport.swift in Sources */,
+				7931D3131FB330AA00C42CC1 /* CustomButton.swift in Sources */,
+				7950B1381FCD8C09009F6F30 /* MultiSwitch.swift in Sources */,
 				79750B721F7A563400A639D3 /* FormatResult+Ext.swift in Sources */,
 				794C3A231F3377AF00C64AF3 /* AppDelegate.swift in Sources */,
 				79E432501F87B208001D951F /* Dictionary+StringFromHTTPParameters.swift in Sources */,
@@ -632,6 +643,7 @@
 				79E432481F866175001D951F /* LabeledEntity.swift in Sources */,
 				79A038D61F83A41A002A22B8 /* NetworkDownloadOperation.swift in Sources */,
 				79A0399D1F83CA3A002A22B8 /* Logging.swift in Sources */,
+				793E438C1F94B92F00E0645B /* TextFieldController.swift in Sources */,
 				79E432461F866049001D951F /* CustomCancelableOperation.swift in Sources */,
 				79E4324E1F87B0E9001D951F /* String+URLPercentEncoding.swift in Sources */,
 			);

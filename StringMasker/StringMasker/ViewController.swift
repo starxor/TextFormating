@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
-    @IBOutlet var textField: UITextField!
-    var textFieldController: TextFieldController!
+    @IBOutlet var webView: WKWebView!
 
     var onReady: () -> Void = {}
 
@@ -19,13 +19,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view, typically from a nib.
-        textFieldController = TextFieldController(
-            textField: textField,
-            asYouTypeFormatter: PhoneNumberFormatter(predefinedAreaCode: 7, maxNumberLength: 10)
-        )
+        guard let view = view.subviews.first as? MultiSwitch else { return }
 
-        opQueue.qualityOfService = .default
+        view.options = [MultiSwitch.Option(title: "Мои"), MultiSwitch.Option(title: "На меня"), MultiSwitch.Option(title: "В поиске")]
+//
+//        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+//        animation.fromValue = 0
+//        let full = CGFloat.pi * 2
+//        animation.toValue = NSNumber(value: Double(full))
+//        animation.isCumulative = true
+//        animation.repeatCount = .greatestFiniteMagnitude
+//        animation.duration = 1
+//
+//        view.layer.add(animation, forKey: "RotationAnimationKey")
+        // Do any additional setup after loading the view, typically from a nib.
+//        textFieldController = TextFieldController(
+//            textField: textField,
+//            asYouTypeFormatter: PhoneNumberFormatter(predefinedAreaCode: 7, maxNumberLength: 10)
+//        )
+
+//        opQueue.qualityOfService = .default
 
 //        let op1 = TestOperation(label: "OP1")
 //        let op2 = TestOperation(label: "OP2")
@@ -43,19 +56,41 @@ class ViewController: UIViewController {
 //
 //        opQueue.addOperations([op1, op2, op3, op4, op5], waitUntilFinished: false)
 
-        let testPath = "https://images7.alphacoders.com/320/320986.jpg"
-        let op6 = NetworkDownloadOperation(url: URL(string: testPath)!, label: "TestDownload")
-        let op7 = NetworkDownloadOperation(url: URL(string: testPath)!, label: "TestDownload2")
+//        let testPath = "https://images7.alphacoders.com/320/320986.jpg"
+//        let op6 = NetworkDownloadOperation(url: URL(string: testPath)!, label: "TestDownload")
+//        let op7 = NetworkDownloadOperation(url: URL(string: testPath)!, label: "TestDownload2")
 
-        opQueue.addOperation(op6)
-        opQueue.addOperation(op7)
+//        opQueue.addOperation(op6)
+//        opQueue.addOperation(op7)
 
 //        let oneSecond = DispatchTime.now() + DispatchTimeInterval.seconds(1)
 //        DispatchQueue.main.asyncAfter(deadline: oneSecond) {
 //            op2.cancel()
 //            op4.cancel()
 //        }
+
+//        let config = WKWebViewConfiguration()
+//        webView = WKWebView(frame: view.frame, configuration: config)
+//        view.addSubview(webView)
+//
+//        webView.navigationDelegate = self
+//
+//        guard let url = URL(string: "https://alfastrah.ru") else { assert(false, "Broken URL") }
+//
+//        let req = URLRequest(url: url)
+//
+//        webView.load(req)
+//
+//        webViewLoading = webView
+//            .observe(\.estimatedProgress, options: NSKeyValueObservingOptions.new) { webView, change in
+//                guard let newValue = change.newValue else { return }
+//
+//                print("newValue: \(newValue)")
+//        }
+
     }
+
+    private var webViewLoading: NSKeyValueObservation!
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -63,33 +98,15 @@ class ViewController: UIViewController {
     }
 }
 
-class TextFieldController: NSObject, UITextFieldDelegate {
-    private var textField: UITextField
-    private var formatter: AsYouTypeFormatter = PhoneNumberFormatter(predefinedAreaCode: 7, maxNumberLength: 10)
-    private var formatResult = FormatResult(string: "", carretPosition: .end)
-
-    init(textField: UITextField, asYouTypeFormatter: AsYouTypeFormatter) {
-        self.textField = textField
-        self.formatter = asYouTypeFormatter
-
-        super.init()
-
-        textField.delegate = self
-        textField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        print("\(#line), \(#function)")
+        print("\(navigation)")
+        print("\(webView.url)")
     }
-
-    @objc func textFieldEditingChanged(_ textField: UITextField) {
-        textField.text = formatResult.string
-        textField.selectedTextRange = formatResult.textPosition(in: textField)
-    }
-
-    func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String
-        ) -> Bool {
-        formatResult = formatter.format(existing: textField.text ?? "", input: string, range: range)
-
-        return true
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("\(#line), \(#function)")
+        print("\(navigation)")
+        print("\(webView.url)")
     }
 }
